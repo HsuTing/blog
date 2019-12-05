@@ -8,16 +8,29 @@
   "repository": "https://github.com/HusTing/blog",
   "version": "1.0.0",
   "dependencies": {
-    "@mikojs/configs": "^1.8.0"
+    "@mikojs/configs": "^1.8.0",
+    "@mikojs/utils": "^1.7.1",
+    "chalk": "^3.0.0",
+    "d3-hierarchy": "^1.1.9",
+    "directory-tree": "^2.2.4",
+    "word-count": "^0.2.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@mikojs/babel-preset-base": "^1.8.0",
     "@mikojs/badges": "^1.8.0",
+    "@mikojs/eslint-config-base": "^1.8.0",
+    "eslint": "^6.7.2",
+    "eslint-watch": "^6.0.1",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "prettier-package-json": "^2.1.0"
   },
-  "keywords": ["blog"],
+  "keywords": [
+    "blog"
+  ],
   "engines": {
     "node": ">= 10.2.1",
     "npm": ">= 6.1.0",
@@ -25,7 +38,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "configs lint-staged"
+      "pre-commit": "configs babel && node ./lib/index.js && configs lint-staged"
     }
   }
 }
